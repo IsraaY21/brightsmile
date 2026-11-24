@@ -1,0 +1,10 @@
+{
+  "name": "brightsmile",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Appointment booking for a dental clinic.",
+  "packageManager": "pnpm@12.4.1",
+  "engines": {
+    "node": ">=24"
+  }
+}
