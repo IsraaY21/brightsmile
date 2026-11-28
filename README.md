@@ -45,6 +45,8 @@ Stop the database with `docker compose stop`. The data stays.
 
 ## Run the API
 
+The API reads `DATABASE_URL` from `.env`, and every route except `/health` needs the running database.
+
 ```bash
 pnpm --filter api start:dev
 ```
@@ -53,9 +55,10 @@ The API listens on `http://localhost:3000`. Check it from a second terminal:
 
 ```bash
 curl http://localhost:3000/health
+curl http://localhost:3000/api/v1/services
 ```
 
-The answer is `{"status":"ok"}`.
+The first answer is `{"status":"ok"}`. The second is the list of active services as JSON, sorted by name.
 
 ## Run the tests
 
@@ -63,3 +66,5 @@ The answer is `{"status":"ok"}`.
 pnpm --filter api test
 pnpm --filter api test:e2e
 ```
+
+The e2e tests need the running database. They use a database of their own, `brightsmile_test`, on the same server. The first run creates it, and every run applies the migrations to it. The development data is not touched.
