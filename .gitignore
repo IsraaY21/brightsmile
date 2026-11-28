@@ -1,7 +1,7 @@
-# packages downloaded by pnpm
+# dependencies
 node_modules/
 
-# files produced by builds and tests
+# build and test output
 dist/
 coverage/
 *.tsbuildinfo
@@ -14,11 +14,6 @@ coverage/
 # logs
 *.log
 
-# files your operating system creates
+# OS files
 .DS_Store
 Thumbs.db
-
-# my notes with Claude, and Claude Code settings
-/CLAUDE.md
-/PROGRESS.md
-.claude/

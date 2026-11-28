@@ -23,7 +23,7 @@ pnpm install
 cp .env.example .env
 ```
 
-Open `.env` and replace `change-me` in both places with a password of your own. Git ignores `.env`.
+Set a password in `.env`, in both `POSTGRES_PASSWORD` and `DATABASE_URL`. Use letters, digits and `-` only: `@`, `:` and `/` break the URL.
 
 ## Run the database
 
@@ -35,7 +35,7 @@ pnpm --filter api db:migrate
 pnpm --filter api db:seed
 ```
 
-The first command starts PostgreSQL in a container. The second creates the tables. The third adds five dental services. Read them:
+This starts PostgreSQL, applies the migrations and seeds five services. To check the seed:
 
 ```bash
 docker compose exec -T postgres psql -U brightsmile -d brightsmile -c "SELECT name, price_cents FROM services ORDER BY name;"
